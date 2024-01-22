@@ -63,6 +63,9 @@ public class AlmacenController {
         return proveedorList.removeIf(proveedor -> cif.equals(proveedor.getCif()));
     }
 
+    public boolean borrarPieza(int id) {
+        return piezaList.removeIf(pieza -> id == pieza.getId());
+    }
     /**
      * @param cif CIF del proveedor
      * @param nombre Nuevo nombre para el proveedor

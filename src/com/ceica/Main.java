@@ -52,6 +52,7 @@ public class Main {
                     subMenuPiezas(leer,almacen);
                     break;
                 case "3":
+                    subMenuPedidos(leer,almacen);
                     break;
                 case "4":
                     System.out.println("Saliendo...");
@@ -60,6 +61,10 @@ public class Main {
                     System.out.println("Opción no válida");
             }
         }while(! "4".equals(op));
+    }
+
+    private static String subMenuPedidos(Scanner leer, AlmacenController almacen) {
+
     }
 
     private static void subMenuPiezas(Scanner leer, AlmacenController almacen) {
@@ -79,19 +84,43 @@ public class Main {
                     nuevaPieza(leer,almacen);
                     break;
                 case "2":
+                    editarPieza(leer,almacen);
                     break;
                 case "3":
+                    borrarPieza(leer,almacen);
                     break;
                 case "4":
                     System.out.println(almacen.verPiezas());
                     break;
                 case "5":
+                    System.out.println("Saliendo a menu Piezas");
                     break;
                 default:
                     System.out.println("Opción no válida");
             }
 
         }while(! "5".equals(op));
+    }
+
+    private static void borrarPieza(Scanner leer, AlmacenController almacen) {
+        int id;
+        System.out.println("Id de la pieza a borrar");
+        id= leer.nextInt();
+        leer.nextLine();
+        almacen.borrarPieza(id);
+        System.out.println("Pieza eliminada");
+    }
+
+    private static void editarPieza(Scanner leer, AlmacenController almacen) {
+        int idpieza;
+        double nuevoPrecio;
+        System.out.println("Id de la pieza a editar");
+        idpieza=leer.nextInt();
+        leer.nextLine();
+        System.out.println("Nuevo precio: ");
+        nuevoPrecio=leer.nextDouble();
+        almacen.editarPrecioPieza(idpieza,nuevoPrecio);
+        leer.nextLine();
     }
 
     private static void nuevaPieza(Scanner leer, AlmacenController almacen) {
@@ -139,7 +168,7 @@ public class Main {
     }
 
     private static void subMenuProveedores(Scanner leer, AlmacenController almacen) {
-        String op,cif,nombre;
+        String op,cif = null,nombre = new String();
         String menuProveedores= """
                 1. Nuevo proveedor
                 2. Editar proveedor
@@ -150,20 +179,35 @@ public class Main {
         do {
             System.out.println(menuProveedores);
             op=leer.nextLine();
-            switch (op){
+            switch (op) {
                 case "1":
                     System.out.print("CIF: ");
-                    cif=leer.nextLine();
-
+                    cif = leer.nextLine();
+                    System.out.println("Nombre: ");
+                    nombre = leer.nextLine();
+                    System.out.println("Direccion: ");
+                    String direccion = leer.nextLine();
+                    System.out.println("Localidad:");
+                    String localidad = leer.nextLine();
+                    System.out.println("Provincia:");
+                    String provincia = leer.nextLine();
+                    almacen.nuevoProveedor(cif, nombre, direccion, localidad, provincia);
 
                     break;
                 case "2":
-
+                    System.out.println("Introduce cif");
+                    cif= leer.nextLine();
+                    System.out.println("Nuevo nombre:");
+                    nombre= leer.nextLine();
+                    almacen.editarNombreProveedor(cif,nombre);
                     break;
                 case "3":
                     System.out.println(almacen.verProveedores());
                     break;
                 case "4":
+                    System.out.println("CIF:");
+                    cif= leer.nextLine();
+                    almacen.borrarProveedor(cif);
                     break;
                 case "5":
                     System.out.println("Volviendo al menú principal...");
