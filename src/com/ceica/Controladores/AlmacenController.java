@@ -22,6 +22,7 @@ public class AlmacenController {
         pedidoList=new ArrayList<>();
         piezaList=new ArrayList<>();
         categorias=new ArrayList<>();
+        proveedorList=Proveedor.getProveedores();
         Categoria categoria=new Categoria(1,"pequeño");
         categorias.add(categoria);
         categorias.add(new Categoria(2,"mediano"));
@@ -44,7 +45,12 @@ public class AlmacenController {
         proveedor.setDireccion(direccion);
         proveedor.setLocalidad(localidad);
         proveedor.setProvincia(provincia);
-        return proveedorList.add(proveedor);
+        if (Proveedor.insertar(proveedor)){
+            return proveedorList.add(proveedor);
+        }else{
+            return false;
+        }
+
     }
     /*
     public boolean borrarProveedor(String cif){
@@ -60,7 +66,14 @@ public class AlmacenController {
 
      */
     public boolean borrarProveedor(String cif){
-        return proveedorList.removeIf(proveedor -> cif.equals(proveedor.getCif()));
+        //return proveedorList.removeIf(proveedor -> cif.equals(proveedor.getCif()));
+        if(Proveedor.eliminarProveedor(cif)){
+            proveedorList=Proveedor.getProveedores();
+            return true;
+        }else{
+            return false;
+        }
+
     }
 
     public boolean borrarPieza(int id) {
@@ -71,7 +84,7 @@ public class AlmacenController {
      * @param nombre Nuevo nombre para el proveedor
      * @return True si puede editar el nombre del proveedor
      */
-    public boolean editarNombreProveedor(String cif, String nombre){
+    /*public boolean editarNombreProveedor(String cif, String nombre){
         /*
         for (int i = 0; i < proveedorList.size(); i++) {
             if(cif.equals(proveedorList.get(i).getCif())){
@@ -90,7 +103,7 @@ public class AlmacenController {
         }
         return false;
          */
-         return proveedorList.stream()
+        /* return proveedorList.stream()
                 .filter(p->cif.equals(p.getCif()))
                  .findFirst()
                 .map(p -> {
@@ -100,7 +113,23 @@ public class AlmacenController {
                 .orElse(false);
 
     }
-
+   */
+    public boolean editarNombreProveedor(String cif,String nombre){
+        if (Proveedor.editarNombreProveedor (cif,nombre)){
+            proveedorList=Proveedor.getProveedores();
+            return true;
+           /* return proveedorList.stream()
+                    .filter(p->cif.equals(p.getCif()))
+                    .findFirst()
+                    .map(p -> {
+                        p.setNombre(nombre);
+                        return true;
+                    })
+                    .orElse(false);*/
+        }else{
+            return false;
+        }
+    }
     /**
      * @param id idpieza
      * @param precio nuevo precio
