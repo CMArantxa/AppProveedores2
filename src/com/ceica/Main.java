@@ -52,7 +52,7 @@ public class Main {
                     subMenuPiezas(leer,almacen);
                     break;
                 case "3":
-                    subMenuPedidos(leer,almacen);
+                   /* subMenuPedidos(leer,almacen);*/
                     break;
                 case "4":
                     System.out.println("Saliendo...");
@@ -63,9 +63,9 @@ public class Main {
         }while(! "4".equals(op));
     }
 
-    private static String subMenuPedidos(Scanner leer, AlmacenController almacen) {
+   /* private static String subMenuPedidos(Scanner leer, AlmacenController almacen) {
 
-    }
+    }*/
 
     private static void subMenuPiezas(Scanner leer, AlmacenController almacen) {
         String op;
