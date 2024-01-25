@@ -199,7 +199,7 @@ public class Main {
                     cif= leer.nextLine();
                     System.out.println("Nuevo nombre:");
                     nombre= leer.nextLine();
-                    almacen.editarNombreProveedor(cif,nombre);
+                    almacen.actualizar(cif,nombre);
                     break;
                 case "3":
                     System.out.println(almacen.verProveedores());

@@ -9,13 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c2c64fc-08f9-4ea0-b273-5bea6494869a" name="Changes" comment="nuevo">
-      <change afterPath="$PROJECT_DIR$/src/com/ceica/Modelos/Usuario.java" afterDir="false" />
+    <list default="true" id="2c2c64fc-08f9-4ea0-b273-5bea6494869a" name="Changes" comment="fin piezas">
+      <change afterPath="$PROJECT_DIR$/src/com/ceica/Modelos/ModeloBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/ceica/Controladores/AlmacenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ceica/Controladores/AlmacenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ceica/Controladores/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ceica/Controladores/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ceica/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ceica/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/ceica/Modelos/Categoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ceica/Modelos/Categoria.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/ceica/Modelos/Pieza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ceica/Modelos/Pieza.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ceica/Modelos/Proveedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ceica/Modelos/Proveedor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +84,20 @@
       <recent name="C:\Users\Lenovo\IdeaProjects\appProveedores2" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Categoria" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ceica.Modelos.Categoria" />
+      <module name="appProveedores" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ceica.Modelos.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ceica.Main" />
       <module name="appProveedores" />
@@ -100,6 +114,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Categoria" />
       </list>
     </recent_temporary>
   </component>
@@ -329,7 +344,14 @@
       <option name="project" value="LOCAL" />
       <updated>1706039083421</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="fin piezas">
+      <created>1706120891309</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1706120891309</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -365,7 +387,8 @@
     <MESSAGE value="Validando precio, color y categoría" />
     <MESSAGE value="falta submenu de pedidos" />
     <MESSAGE value="nuevo" />
-    <option name="LAST_COMMIT_MESSAGE" value="nuevo" />
+    <MESSAGE value="fin piezas" />
+    <option name="LAST_COMMIT_MESSAGE" value="fin piezas" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

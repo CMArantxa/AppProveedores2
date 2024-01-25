@@ -6,7 +6,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pieza {
+public class Pieza extends ModeloBase {
     private static int idPieza=0;
     private int id;
     private String nombre;
@@ -171,5 +171,10 @@ public class Pieza {
             return false;
         }
 
+    }
+
+    @Override
+    public String getNombreTabla() {
+        return "piezas";
     }
 }

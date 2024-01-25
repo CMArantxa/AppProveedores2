@@ -6,7 +6,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Proveedor {
+public class Proveedor  extends ModeloBase{
 
 
     private int id;
@@ -114,7 +114,12 @@ public class Proveedor {
         return proveedorList;
     }
 
-    public static boolean insertar(Proveedor proveedor) {
+    @Override
+    public String getNombreTabla() {
+        return "proveedor";
+    }
+
+   /* public static boolean insertar(Proveedor proveedor) {
         Connection conn = Conexion.conectar();
         String sql = "insert into proveedor (nombre,direccion,localidad,provincia,cif) VALUES (?,?,?,?,?)";
         try {
@@ -133,9 +138,9 @@ public class Proveedor {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    }
+    }*/
 
-    public static boolean editarNombreProveedor(String cif, String nombre) {
+   /* public static boolean editarNombreProveedor(String cif, String nombre) {
         Connection conn = Conexion.conectar();
         String sql = "update proveedor set nombre=? where cif=?";
         try {
@@ -153,10 +158,9 @@ public class Proveedor {
             return false;
         }
 
-    }
+    }*/
 
-    public static boolean eliminarProveedor(String cif) {
-        Connection conn = Conexion.conectar();
+    /*public static boolean eliminarProveedor(String cif) {
         String sql = "delete from proveedor where cif=?";
         PreparedStatement pst = null;
         try {
@@ -176,4 +180,8 @@ public class Proveedor {
 
     }
 
+    @Override
+    protected String getNombreTabla() {
+        return "proveedor";
+    }*/
 }

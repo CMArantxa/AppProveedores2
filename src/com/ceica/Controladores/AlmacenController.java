@@ -40,11 +40,9 @@ public class AlmacenController {
      */
     public boolean nuevoProveedor(String cif,String nombre,String direccion,String localidad,String provincia){
         Proveedor proveedor=new Proveedor(cif,nombre);
-        proveedor.setDireccion(direccion);
-        proveedor.setLocalidad(localidad);
-        proveedor.setProvincia(provincia);
-        if (Proveedor.insertar(proveedor)){
-            return proveedorList.add(proveedor);
+
+       if (proveedor.insertar("(cif,nombre,direccion,localidad,provincia) values (?,?,?,?,?)",cif,nombre,direccion,localidad,provincia)){
+        return proveedorList.add(proveedor);
         }else{
             return false;
         }
@@ -65,7 +63,8 @@ public class AlmacenController {
      */
     public boolean borrarProveedor(String cif){
         //return proveedorList.removeIf(proveedor -> cif.equals(proveedor.getCif()));
-        if(Proveedor.eliminarProveedor(cif)){
+        Proveedor proveedor=new Proveedor();
+        if(proveedor.borrar("cif=?",cif)){
             proveedorList=Proveedor.getProveedores();
             return true;
         }else{
@@ -112,8 +111,9 @@ public class AlmacenController {
 
     }
    */
-    public boolean editarNombreProveedor(String cif,String nombre){
-        if (Proveedor.editarNombreProveedor (cif,nombre)){
+    public boolean actualizar(String cif,String nombre){
+        Proveedor proveedor=new Proveedor();
+        if (proveedor.actualizar ("nombre=? where cif=?",nombre,cif)){
             proveedorList=Proveedor.getProveedores();
             return true;
            /* return proveedorList.stream()
@@ -154,8 +154,12 @@ public class AlmacenController {
     public boolean nuevaPieza(String nombre, Color color, Double precio, int idcategoria){
             Pieza pieza=new Pieza(nombre,color.toString(),precio);
             pieza.setCategoria(getCategoriaById(idcategoria));
-            piezaList.add(pieza);
-            return true;
+           if ( pieza.insertar("(nombre,color,precio,idcategoria) values (?,?,?,?)",nombre,color.toString(),precio,idcategoria)){
+               return true;
+           }else{
+               return false;
+           }
+
     }
 
     /**
